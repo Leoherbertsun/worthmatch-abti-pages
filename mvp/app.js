@@ -10,6 +10,7 @@ const state = {
 const STORAGE_KEY = "worthmatch-abti-mvp-answers";
 const ASSET_VERSION = "animals_v2";
 const QUESTION_SCENE_VERSION = "question_scenes_v2";
+const CACHE_BUST = "20260429a";
 
 const resultCopy = {
   dog: "你很擅长把关系养热，愿意回应、陪伴和一起行动。别人和你相处时容易感到被接住。",
@@ -475,11 +476,15 @@ function bestBuddyMatches(animalId) {
 }
 
 function assetPath(animal, pose) {
-  return new URL(`../assets/${ASSET_VERSION}/transparent/${animal}/${animal}_${pose}_transparent.png`, window.location.href).href;
+  const url = new URL(`../assets/${ASSET_VERSION}/transparent/${animal}/${animal}_${pose}_transparent.png`, window.location.href);
+  url.searchParams.set("v", CACHE_BUST);
+  return url.href;
 }
 
 function questionScenePath(questionId) {
-  return new URL(`../assets/${QUESTION_SCENE_VERSION}/transparent/${questionId}_transparent.png`, window.location.href).href;
+  const url = new URL(`../assets/${QUESTION_SCENE_VERSION}/transparent/${questionId}_transparent.png`, window.location.href);
+  url.searchParams.set("v", CACHE_BUST);
+  return url.href;
 }
 
 function setAnimalImage(image, animal, pose, alt = "") {
