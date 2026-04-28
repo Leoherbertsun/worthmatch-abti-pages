@@ -450,6 +450,7 @@ h3 {
 
 .weight-list,
 .scene-list,
+.match-list,
 .trait-bars {
   display: grid;
   gap: 12px;
@@ -466,6 +467,39 @@ h3 {
   width: 42px;
   height: 42px;
   object-fit: contain;
+}
+
+.match-card-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.match-card {
+  display: grid;
+  min-height: 96px;
+  place-items: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 240, 0.74);
+  color: #5f5670;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.match-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.match-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
 }
 
 .bar-track {

@@ -30,6 +30,73 @@ const resultCopy = {
   hedgehog: "你有保护壳，但熟了之后很柔软。你适合尊重边界、稳定不过度打扰的搭子关系。",
 };
 
+const buddyMatchCopy = {
+  dog: {
+    best: ["otter", "penguin", "deer"],
+    reason: "你适合能接住热情、愿意稳定互动，也不会把陪伴变成压力的人。",
+  },
+  cat: {
+    best: ["owl", "hedgehog", "otter"],
+    reason: "你适合尊重边界、交流有内容，又能在熟起来后带一点轻松感的人。",
+  },
+  deer: {
+    best: ["bear", "whale", "dog"],
+    reason: "你适合温柔稳定、回应明确，能让你慢慢放松下来的人。",
+  },
+  fox: {
+    best: ["squirrel", "owl", "dolphin"],
+    reason: "你适合反应快、有好奇心，能一起观察、拆解和探索新鲜事的人。",
+  },
+  bear: {
+    best: ["deer", "penguin", "eagle"],
+    reason: "你适合珍惜稳定关系、行动可靠，也能一起把计划落地的人。",
+  },
+  otter: {
+    best: ["dog", "alpaca", "cat"],
+    reason: "你适合能一起玩起来、接受即兴，也懂得给彼此留舒适空间的人。",
+  },
+  dolphin: {
+    best: ["fox", "deer", "wolf"],
+    reason: "你适合愿意交流、能参与群体氛围，也能在关键时刻认真投入的人。",
+  },
+  eagle: {
+    best: ["wolf", "bear", "squirrel"],
+    reason: "你适合目标清楚、节奏可靠，能一起推进学习、运动或项目的人。",
+  },
+  wolf: {
+    best: ["eagle", "dolphin", "penguin"],
+    reason: "你适合重视小队感、说到做到，也愿意长期配合的人。",
+  },
+  rabbit: {
+    best: ["deer", "hedgehog", "alpaca"],
+    reason: "你适合低压力、慢慢熟，既温柔又不会突然打乱你节奏的人。",
+  },
+  penguin: {
+    best: ["bear", "dog", "wolf"],
+    reason: "你适合固定频率见面、能一起打卡，也能把日常变得有仪式感的人。",
+  },
+  owl: {
+    best: ["cat", "fox", "whale"],
+    reason: "你适合能深入聊天、尊重思考时间，也愿意交换观点的人。",
+  },
+  whale: {
+    best: ["deer", "owl", "hedgehog"],
+    reason: "你适合情绪细腻、交流有深度，并且能长期建立信任的人。",
+  },
+  alpaca: {
+    best: ["otter", "rabbit", "squirrel"],
+    reason: "你适合松弛、不端着，能接受一点跳脱节奏的人。",
+  },
+  squirrel: {
+    best: ["fox", "eagle", "alpaca"],
+    reason: "你适合信息敏锐、行动灵活，能一起发现新店、新路线和新玩法的人。",
+  },
+  hedgehog: {
+    best: ["cat", "rabbit", "whale"],
+    reason: "你适合边界感清楚、不会过度打扰，但熟了之后能认真陪伴的人。",
+  },
+};
+
 const dimensionAxis = {
   D1: ["独处充电", "人群充电"],
   D2: ["慢热观察", "主动靠近"],
@@ -138,7 +205,7 @@ function startTest(resume) {
   state.revisitedQuestionIds = new Set();
   state.index = resume ? firstUnansweredIndex() : 0;
   showView("testView");
-  renderQuestion({ resetScroll: true });
+  renderQuestion({ scrollMode: "top" });
 }
 
 function showView(viewId) {
@@ -164,7 +231,7 @@ function firstUnansweredIndex() {
   return index === -1 ? state.questions.length - 1 : index;
 }
 
-function renderQuestion({ resetScroll = false } = {}) {
+function renderQuestion({ scrollMode = "keep" } = {}) {
   const question = state.questions[state.index];
   const progress = (state.index + 1) / state.questions.length;
   $("progressText").textContent = `${state.index + 1} / ${state.questions.length}`;
@@ -175,7 +242,23 @@ function renderQuestion({ resetScroll = false } = {}) {
 
   if (question.type === "core") renderCoreQuestion(question);
   if (question.type === "scene") renderSceneQuestion(question);
-  if (resetScroll) window.scrollTo(0, 0);
+  adjustQuestionScroll(scrollMode);
+}
+
+function adjustQuestionScroll(mode) {
+  if (mode === "top") {
+    window.scrollTo(0, 0);
+    return;
+  }
+  if (mode !== "question") return;
+  if (window.matchMedia("(min-width: 881px)").matches) {
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  const card = $("questionCard");
+  const top = card.getBoundingClientRect().top + window.scrollY - 18;
+  window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
 }
 
 function sectionLabel(type) {
@@ -275,7 +358,7 @@ function answerQuestion(id, value) {
 function goNext() {
   if (state.index < state.questions.length - 1) {
     state.index += 1;
-    renderQuestion({ resetScroll: true });
+    renderQuestion({ scrollMode: "question" });
   } else {
     renderResult();
   }
@@ -285,7 +368,7 @@ function goBack() {
   if (state.index > 0) {
     state.index -= 1;
     state.revisitedQuestionIds.add(state.questions[state.index].id);
-    renderQuestion({ resetScroll: true });
+    renderQuestion({ scrollMode: "question" });
   } else {
     showView("startView");
   }
@@ -335,6 +418,23 @@ function renderResult() {
         .join("")
     : `<span class="scene-chip">还需要更多场景答案</span>`;
 
+  const matches = bestBuddyMatches(main.id);
+  $("matchList").innerHTML = `
+    <div class="match-card-row">
+      ${matches.best
+        .map(
+          (animal) => `
+            <div class="match-card">
+              <img src="${assetPath(animal.id, "mini")}" alt="" />
+              <strong>${animal.name}</strong>
+            </div>
+          `
+        )
+        .join("")}
+    </div>
+    <p>${matches.reason}</p>
+  `;
+
   $("traitBars").innerHTML = state.prototypes.dimensionOrder
     .map((dimension) => {
       const value = result.traitVector[dimension];
@@ -362,6 +462,16 @@ function secondaryText(secondaries) {
   if (!secondaries.length) return "";
   const names = secondaries.map((animal) => animal.name).join("、");
   return ` 你还带一点${names}气质。`;
+}
+
+function bestBuddyMatches(animalId) {
+  const config = buddyMatchCopy[animalId] || {
+    best: [],
+    reason: "你适合和节奏清楚、相处舒服的人一起玩。",
+  };
+  const byId = Object.fromEntries(state.prototypes.animals.map((animal) => [animal.id, animal]));
+  const best = config.best.map((id) => byId[id]).filter(Boolean).slice(0, 3);
+  return { best, reason: config.reason };
 }
 
 function assetPath(animal, pose) {
@@ -541,10 +651,12 @@ function calculateDimensionStability(support) {
 
 async function createShareCard() {
   const result = scoreResponses(state.answers);
+  const matches = bestBuddyMatches(result.mainAnimal.id);
   const lines = [
     `我是 ${result.mainAnimal.name}主调`,
     result.secondaryAnimals.length ? `还带一点 ${result.secondaryAnimals.map((animal) => animal.name).join(" / ")}` : "",
     `适合：${result.topScenes.map((scene) => state.questionBank.sceneTags[scene.id]).join("、")}`,
+    `适合一起玩：${matches.best.map((animal) => animal.name).join("、")}`,
   ].filter(Boolean);
   navigator.clipboard?.writeText(lines.join("\n"));
 
@@ -610,9 +722,28 @@ async function drawShareCard(result) {
     }
   }
 
+  const matches = bestBuddyMatches(result.mainAnimal.id);
+  context.fillStyle = "#262033";
+  context.font = "800 34px system-ui, sans-serif";
+  context.fillText("适合一起玩的类型", 118, 1292);
+
+  x = 118;
+  y = 1330;
+  for (const animal of matches.best) {
+    const label = animal.name;
+    context.font = "700 25px system-ui, sans-serif";
+    const chipWidth = Math.min(260, context.measureText(label).width + 40);
+    context.fillStyle = "#ffffff";
+    roundRect(context, x, y, chipWidth, 50, 25);
+    context.fill();
+    context.fillStyle = "#5f5670";
+    context.fillText(label, x + 20, y + 33);
+    x += chipWidth + 12;
+  }
+
   context.fillStyle = "#756d85";
-  context.font = "600 26px system-ui, sans-serif";
-  context.fillText("测出你的 Animal Buddy Type", 118, 1330);
+  context.font = "600 24px system-ui, sans-serif";
+  context.fillText("测出你的 Animal Buddy Type", 118, 1400);
 }
 
 function loadImage(src) {
