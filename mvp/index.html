@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorthMatch ABTI 动物搭子人格测试</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app-shell">
+      <section id="startView" class="start-view">
+        <div class="start-copy">
+          <p class="eyebrow">WorthMatch ABTI</p>
+          <h1>动物搭子人格测试</h1>
+          <p class="lead">测出你在搭子关系里的靠近方式、边界节奏和适合场景。</p>
+          <div class="start-actions">
+            <button id="startButton" class="primary-action" type="button">开始测试</button>
+            <button id="resumeButton" class="ghost-action" type="button">继续上次</button>
+          </div>
+          <div class="start-meta">
+            <span>30 题</span>
+            <span>约 4 分钟</span>
+            <span>主型 + 副倾向</span>
+          </div>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <img class="hero-scene" src="../assets/question_scenes_v2/transparent/HOME_transparent.png" alt="" />
+        </div>
+      </section>
+
+      <section id="testView" class="test-view hidden">
+        <header class="test-header">
+          <div class="progress-wrap" aria-label="测试进度">
+            <div class="progress-label"><span id="progressText">1 / 30</span><span id="sectionText">核心量表</span></div>
+            <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+          </div>
+          <button id="resetButton" class="icon-text-button" type="button">重测</button>
+        </header>
+
+        <div class="question-layout">
+          <aside class="question-mascot">
+            <img id="questionMascot" src="../assets/question_scenes_v2/transparent/Q01_transparent.png" alt="" />
+          </aside>
+          <article id="questionCard" class="question-card"></article>
+        </div>
+      </section>
+
+      <section id="resultView" class="result-view hidden">
+        <header class="result-hero">
+          <div class="result-copy">
+            <p class="eyebrow">你的 ABTI 结果</p>
+            <h2 id="resultTitle">水獭系主调</h2>
+            <p id="resultSubtitle" class="lead"></p>
+            <div id="resultKeywords" class="chip-row"></div>
+            <div class="result-actions">
+              <button id="shareButton" class="primary-action" type="button">生成分享卡</button>
+              <button id="restartButton" class="ghost-action" type="button">重新测试</button>
+            </div>
+          </div>
+          <div class="result-animal-stage">
+            <img id="mainAnimalImage" alt="" />
+          </div>
+        </header>
+
+        <section class="result-grid">
+          <article class="panel">
+            <h3>类型权重</h3>
+            <div id="animalWeights" class="weight-list"></div>
+          </article>
+          <article class="panel">
+            <h3>适合找的搭子</h3>
+            <div id="sceneList" class="scene-list"></div>
+          </article>
+          <article class="panel wide-panel">
+            <h3>8 维关系向量</h3>
+            <div id="traitBars" class="trait-bars"></div>
+          </article>
+          <article class="panel">
+            <h3>结果稳定度</h3>
+            <div id="confidenceBlock" class="confidence-block"></div>
+          </article>
+        </section>
+
+        <section id="shareCardPanel" class="share-card-panel hidden">
+          <canvas id="shareCanvas" width="1080" height="1440" aria-label="分享卡预览"></canvas>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

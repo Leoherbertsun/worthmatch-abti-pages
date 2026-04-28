@@ -1,0 +1,162 @@
+{
+  "version": "0.2",
+  "name": "WorthMatch DTI animal prototypes",
+  "dimensionOrder": ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"],
+  "dimensionWeights": {
+    "D1": 1.05,
+    "D2": 1.1,
+    "D3": 1.2,
+    "D4": 1.0,
+    "D5": 1.0,
+    "D6": 0.95,
+    "D7": 1.1,
+    "D8": 1.05
+  },
+  "temperature": 1.15,
+  "animals": [
+    {
+      "id": "dog",
+      "name": "犬系",
+      "vector": { "D1": 2, "D2": 2, "D3": 2, "D4": 1, "D5": 2, "D6": 0, "D7": 0, "D8": 1 },
+      "keywords": ["热情", "回应", "陪伴", "行动"],
+      "complements": ["cat", "deer", "eagle"],
+      "bestScenes": ["food", "sports", "event", "emotional"],
+      "assetSlug": "dog"
+    },
+    {
+      "id": "cat",
+      "name": "猫系",
+      "vector": { "D1": -1, "D2": -1, "D3": -2, "D4": 0, "D5": -1, "D6": 0, "D7": 0, "D8": -1 },
+      "keywords": ["独立", "审美", "边界", "慢热"],
+      "complements": ["dog", "otter", "bear"],
+      "bestScenes": ["culture", "emotional", "study"],
+      "assetSlug": "cat"
+    },
+    {
+      "id": "deer",
+      "name": "鹿系",
+      "vector": { "D1": -1, "D2": -1, "D3": 0, "D4": -1, "D5": -1, "D6": -1, "D7": -2, "D8": -1 },
+      "keywords": ["温和", "敏感", "治愈", "细腻"],
+      "complements": ["bear", "dog", "penguin"],
+      "bestScenes": ["emotional", "culture", "city_explore"],
+      "assetSlug": "deer"
+    },
+    {
+      "id": "fox",
+      "name": "狐系",
+      "vector": { "D1": 1, "D2": 0, "D3": -1, "D4": 2, "D5": 0, "D6": 2, "D7": 1, "D8": 2 },
+      "keywords": ["敏锐", "机智", "探索", "分寸"],
+      "complements": ["owl", "dog", "squirrel"],
+      "bestScenes": ["city_explore", "project", "culture"],
+      "assetSlug": "fox"
+    },
+    {
+      "id": "bear",
+      "name": "熊系",
+      "vector": { "D1": -1, "D2": -1, "D3": 1, "D4": -2, "D5": -1, "D6": -2, "D7": 0, "D8": -2 },
+      "keywords": ["稳定", "踏实", "保护感", "长期"],
+      "complements": ["deer", "rabbit", "cat"],
+      "bestScenes": ["food", "emotional", "study"],
+      "assetSlug": "bear"
+    },
+    {
+      "id": "otter",
+      "name": "水獭系",
+      "vector": { "D1": 2, "D2": 2, "D3": 1, "D4": 2, "D5": 2, "D6": 2, "D7": -1, "D8": 1 },
+      "keywords": ["快乐", "松弛", "玩乐", "亲近"],
+      "complements": ["cat", "eagle", "hedgehog"],
+      "bestScenes": ["food", "city_explore", "gaming", "sports"],
+      "assetSlug": "otter"
+    },
+    {
+      "id": "dolphin",
+      "name": "海豚系",
+      "vector": { "D1": 2, "D2": 1, "D3": 2, "D4": 1, "D5": 2, "D6": 1, "D7": -1, "D8": 2 },
+      "keywords": ["共情", "连接", "气氛", "开放"],
+      "complements": ["owl", "eagle", "deer"],
+      "bestScenes": ["event", "emotional", "culture", "food"],
+      "assetSlug": "dolphin"
+    },
+    {
+      "id": "eagle",
+      "name": "鹰系",
+      "vector": { "D1": -1, "D2": 0, "D3": -2, "D4": -2, "D5": -1, "D6": 1, "D7": 2, "D8": 0 },
+      "keywords": ["目标", "效率", "独立", "推进"],
+      "complements": ["dog", "otter", "dolphin"],
+      "bestScenes": ["study", "project", "sports"],
+      "assetSlug": "eagle"
+    },
+    {
+      "id": "wolf",
+      "name": "狼系",
+      "vector": { "D1": 0, "D2": -1, "D3": 1, "D4": -1, "D5": -1, "D6": -1, "D7": 2, "D8": -2 },
+      "keywords": ["忠诚", "小队", "协作", "目标"],
+      "complements": ["penguin", "dog", "owl"],
+      "bestScenes": ["project", "sports", "study"],
+      "assetSlug": "wolf"
+    },
+    {
+      "id": "rabbit",
+      "name": "兔系",
+      "vector": { "D1": -1, "D2": -2, "D3": 0, "D4": -1, "D5": -1, "D6": -1, "D7": -2, "D8": -1 },
+      "keywords": ["轻盈", "谨慎", "安全感", "柔软"],
+      "complements": ["bear", "deer", "dog"],
+      "bestScenes": ["emotional", "culture", "food"],
+      "assetSlug": "rabbit"
+    },
+    {
+      "id": "penguin",
+      "name": "企鹅系",
+      "vector": { "D1": 0, "D2": -1, "D3": 2, "D4": -2, "D5": 0, "D6": -2, "D7": 1, "D8": -1 },
+      "keywords": ["固定", "仪式", "结伴", "耐心"],
+      "complements": ["wolf", "deer", "squirrel"],
+      "bestScenes": ["food", "study", "sports"],
+      "assetSlug": "penguin"
+    },
+    {
+      "id": "owl",
+      "name": "猫头鹰系",
+      "vector": { "D1": -2, "D2": -1, "D3": -2, "D4": -1, "D5": -2, "D6": 0, "D7": 1, "D8": -1 },
+      "keywords": ["思考", "知识", "夜间能量", "深聊"],
+      "complements": ["fox", "dolphin", "wolf"],
+      "bestScenes": ["study", "culture", "emotional"],
+      "assetSlug": "owl"
+    },
+    {
+      "id": "whale",
+      "name": "鲸系",
+      "vector": { "D1": -2, "D2": -2, "D3": 0, "D4": -2, "D5": -2, "D6": -2, "D7": -2, "D8": -2 },
+      "keywords": ["深度", "慢节奏", "情绪", "包容"],
+      "complements": ["deer", "bear", "dolphin"],
+      "bestScenes": ["emotional", "culture"],
+      "assetSlug": "whale"
+    },
+    {
+      "id": "alpaca",
+      "name": "羊驼系",
+      "vector": { "D1": 1, "D2": 0, "D3": 0, "D4": 1, "D5": 1, "D6": -1, "D7": -2, "D8": 0 },
+      "keywords": ["松弛", "怪可爱", "不卷", "舒服"],
+      "complements": ["eagle", "cat", "rabbit"],
+      "bestScenes": ["food", "city_explore", "gaming", "emotional"],
+      "assetSlug": "alpaca"
+    },
+    {
+      "id": "squirrel",
+      "name": "松鼠系",
+      "vector": { "D1": 1, "D2": 1, "D3": -1, "D4": 2, "D5": 1, "D6": 2, "D7": 0, "D8": 2 },
+      "keywords": ["好奇", "收集", "灵活", "发现"],
+      "complements": ["fox", "penguin", "cat"],
+      "bestScenes": ["city_explore", "study", "food"],
+      "assetSlug": "squirrel"
+    },
+    {
+      "id": "hedgehog",
+      "name": "刺猬系",
+      "vector": { "D1": -2, "D2": -2, "D3": -2, "D4": -1, "D5": -2, "D6": -1, "D7": -1, "D8": -2 },
+      "keywords": ["防御", "慢热", "边界", "熟后柔软"],
+      "complements": ["otter", "bear", "dog"],
+      "bestScenes": ["emotional", "study", "culture"],
+      "assetSlug": "hedgehog"
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "version": "0.2",
+  "name": "WorthMatch DTI free test question bank",
+  "scaleOptions": [
+    { "value": -2, "label": "更像 A" },
+    { "value": -1, "label": "有点像 A" },
+    { "value": 0, "label": "都差不多" },
+    { "value": 1, "label": "有点像 B" },
+    { "value": 2, "label": "更像 B" }
+  ],
+  "dimensions": {
+    "D1": "社交电量",
+    "D2": "靠近速度",
+    "D3": "边界密度",
+    "D4": "行动节奏",
+    "D5": "情绪表达",
+    "D6": "新鲜偏好",
+    "D7": "目标驱动",
+    "D8": "关系半径"
+  },
+  "coreQuestions": [
+    {
+      "id": "Q01",
+      "a": "周末空下来，我更想留一段完全属于自己的时间。",
+      "b": "周末空下来，我会自然想约人见面或聊天。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D1", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q02",
+      "a": "连续社交后，我需要明显的恢复时间。",
+      "b": "连续社交后，我反而更容易进入状态。",
+      "discrimination": 1.15,
+      "impacts": [{ "dimension": "D1", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q03",
+      "a": "我喜欢一对一或小范围交流。",
+      "b": "我喜欢热闹一点，多几个人反而更有趣。",
+      "discrimination": 1.0,
+      "impacts": [
+        { "dimension": "D1", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D8", "a": -1, "b": 1, "weight": 0.45 }
+      ]
+    },
+    {
+      "id": "Q04",
+      "a": "刚认识一个人时，我通常先观察对方的节奏。",
+      "b": "刚认识一个人时，我愿意先释放友好信号。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D2", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q05",
+      "a": "如果对方太快熟，我会下意识后退一点。",
+      "b": "如果对方很快熟，我通常也能接住。",
+      "discrimination": 1.15,
+      "impacts": [
+        { "dimension": "D2", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D3", "a": -1, "b": 1, "weight": 0.35 }
+      ]
+    },
+    {
+      "id": "Q06",
+      "a": "我更相信关系是慢慢熟起来的。",
+      "b": "我觉得有些人一见面就能很快聊开。",
+      "discrimination": 0.9,
+      "impacts": [{ "dimension": "D2", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q07",
+      "a": "再好的朋友，也最好保留各自的私人空间。",
+      "b": "关系好到一定程度，就应该多分享日常。",
+      "discrimination": 1.15,
+      "impacts": [{ "dimension": "D3", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q08",
+      "a": "我不太喜欢别人临时闯进我的计划。",
+      "b": "如果是熟人临时约我，我一般愿意调整。",
+      "discrimination": 1.0,
+      "impacts": [
+        { "dimension": "D3", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D4", "a": -1, "b": 1, "weight": 0.35 }
+      ]
+    },
+    {
+      "id": "Q09",
+      "a": "我喜欢清楚地知道彼此的边界在哪里。",
+      "b": "我喜欢自然一点，不用把边界说得太明白。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D3", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q10",
+      "a": "出门前我会先确认时间、地点和路线。",
+      "b": "出门后边走边决定，反而更有意思。",
+      "discrimination": 1.15,
+      "impacts": [{ "dimension": "D4", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q11",
+      "a": "我更喜欢固定频率的约定，比如每周一次。",
+      "b": "我更喜欢想到就约，不想被固定节奏绑住。",
+      "discrimination": 1.0,
+      "impacts": [
+        { "dimension": "D4", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D6", "a": -1, "b": 1, "weight": 0.45 }
+      ]
+    },
+    {
+      "id": "Q12",
+      "a": "遇到变化时，我会先想怎么把事情重新安排好。",
+      "b": "遇到变化时，我会觉得也许有新的玩法。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D4", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q13",
+      "a": "有情绪时，我通常会先自己消化一下。",
+      "b": "有情绪时，我会希望能马上说出来。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D5", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q14",
+      "a": "我表达喜欢和感谢时比较克制。",
+      "b": "我表达喜欢和感谢时会比较直接。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D5", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q15",
+      "a": "我更擅长用行动照顾别人。",
+      "b": "我更擅长用语言和情绪回应别人。",
+      "discrimination": 0.9,
+      "impacts": [
+        { "dimension": "D5", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D7", "a": 1, "b": -1, "weight": 0.35 }
+      ]
+    },
+    {
+      "id": "Q16",
+      "a": "我会反复去熟悉、舒服、确定的地方。",
+      "b": "我会不断想试新的店、新的路线、新的活动。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D6", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q17",
+      "a": "我喜欢稳定的人际关系，不太想频繁认识新人。",
+      "b": "我喜欢保持开放，偶尔认识新朋友很有能量。",
+      "discrimination": 1.0,
+      "impacts": [
+        { "dimension": "D6", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D8", "a": -1, "b": 1, "weight": 0.45 }
+      ]
+    },
+    {
+      "id": "Q18",
+      "a": "一个搭子越稳定、越可预期，我越安心。",
+      "b": "一个搭子越有新点子、越能带我尝试，我越开心。",
+      "discrimination": 1.15,
+      "impacts": [{ "dimension": "D6", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q19",
+      "a": "对我来说，相处舒服比一起完成什么更重要。",
+      "b": "对我来说，搭子最好能一起推进某件事。",
+      "discrimination": 1.15,
+      "impacts": [{ "dimension": "D7", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q20",
+      "a": "如果今天状态不好，计划可以先放一放。",
+      "b": "如果约好了目标，我会尽量按计划完成。",
+      "discrimination": 1.0,
+      "impacts": [
+        { "dimension": "D7", "a": -1, "b": 1, "weight": 1.0 },
+        { "dimension": "D4", "a": 1, "b": -1, "weight": 0.35 }
+      ]
+    },
+    {
+      "id": "Q21",
+      "a": "我喜欢没有压力的陪伴，做不做成什么都可以。",
+      "b": "我喜欢有一点共同目标，这样关系更有动力。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D7", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q22",
+      "a": "我更喜欢少数几个稳定的人。",
+      "b": "我愿意认识不同圈层、不同性格的人。",
+      "discrimination": 1.15,
+      "impacts": [{ "dimension": "D8", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q23",
+      "a": "一个关系如果不够深，我会觉得没太大意义。",
+      "b": "有些关系轻轻松松、浅一点也挺好。",
+      "discrimination": 0.9,
+      "impacts": [{ "dimension": "D8", "a": -1, "b": 1, "weight": 1.0 }]
+    },
+    {
+      "id": "Q24",
+      "a": "我通常不会主动扩展社交圈。",
+      "b": "我会自然地把不同朋友连接到一起。",
+      "discrimination": 1.0,
+      "impacts": [{ "dimension": "D8", "a": -1, "b": 1, "weight": 1.0 }]
+    }
+  ],
+  "sceneQuestions": [
+    {
+      "id": "Q25",
+      "question": "如果这个周末只能约一个搭子，你更想做什么？",
+      "options": [
+        { "label": "探店吃饭", "tags": ["food"] },
+        { "label": "展览电影", "tags": ["culture"] },
+        { "label": "运动户外", "tags": ["sports"] },
+        { "label": "在家游戏/线上娱乐", "tags": ["gaming"] }
+      ]
+    },
+    {
+      "id": "Q26",
+      "question": "你最近最缺哪种陪伴？",
+      "options": [
+        { "label": "有人一起学习/自习", "tags": ["study"] },
+        { "label": "有人一起运动打卡", "tags": ["sports"] },
+        { "label": "有人听我说说话", "tags": ["emotional"] },
+        { "label": "有人一起探索城市", "tags": ["city_explore"] }
+      ]
+    },
+    {
+      "id": "Q27",
+      "question": "你更想加入哪种小群？",
+      "options": [
+        { "label": "每周固定饭局", "tags": ["food"] },
+        { "label": "读书/观影讨论", "tags": ["culture"] },
+        { "label": "创作/项目互助", "tags": ["project"] },
+        { "label": "周末随机出门", "tags": ["city_explore"] }
+      ]
+    },
+    {
+      "id": "Q28",
+      "question": "如果 AI 给你推荐一个搭子，你最希望理由是？",
+      "options": [
+        { "label": "你们兴趣很像", "tags": ["culture", "food"] },
+        { "label": "你们节奏互补", "tags": ["city_explore"] },
+        { "label": "你们目标一致", "tags": ["study", "project"] },
+        { "label": "你们情绪上能互相接住", "tags": ["emotional"] }
+      ]
+    },
+    {
+      "id": "Q29",
+      "question": "哪种邀约最容易让你答应？",
+      "options": [
+        { "label": "新开的店一起试试", "tags": ["food"] },
+        { "label": "明天一起自习两小时", "tags": ["study"] },
+        { "label": "周末徒步/运动一下", "tags": ["sports"] },
+        { "label": "晚上连麦聊会儿", "tags": ["emotional", "gaming"] }
+      ]
+    },
+    {
+      "id": "Q30",
+      "question": "你希望 WorthMatch 最先帮你解决什么？",
+      "options": [
+        { "label": "找吃喝玩乐搭子", "tags": ["food", "city_explore"] },
+        { "label": "找学习成长搭子", "tags": ["study"] },
+        { "label": "找运动旅行搭子", "tags": ["sports", "city_explore"] },
+        { "label": "找能深聊的人", "tags": ["emotional", "culture"] }
+      ]
+    }
+  ],
+  "calibration": {
+    "mostLikeQuestionId": "Q31",
+    "leastLikeQuestionId": "Q32",
+    "options": [
+      {
+        "id": "warm_action",
+        "label": "我喜欢关系里有回应、有热度、有行动。",
+        "impacts": [
+          { "dimension": "D1", "value": 1, "weight": 0.6 },
+          { "dimension": "D2", "value": 1, "weight": 0.6 },
+          { "dimension": "D5", "value": 1, "weight": 0.6 }
+        ]
+      },
+      {
+        "id": "soft_boundary",
+        "label": "我需要舒服的距离，熟了之后才会真正打开。",
+        "impacts": [
+          { "dimension": "D2", "value": -1, "weight": 0.6 },
+          { "dimension": "D3", "value": -1, "weight": 0.6 },
+          { "dimension": "D8", "value": -1, "weight": 0.6 }
+        ]
+      },
+      {
+        "id": "gentle_low_pressure",
+        "label": "我对氛围很敏感，希望关系是温柔低压的。",
+        "impacts": [
+          { "dimension": "D5", "value": -1, "weight": 0.6 },
+          { "dimension": "D7", "value": -1, "weight": 0.6 },
+          { "dimension": "D6", "value": -1, "weight": 0.4 }
+        ]
+      },
+      {
+        "id": "smart_novel",
+        "label": "我喜欢有趣、聪明、有一点未知感的人。",
+        "impacts": [
+          { "dimension": "D4", "value": 1, "weight": 0.6 },
+          { "dimension": "D6", "value": 1, "weight": 0.6 },
+          { "dimension": "D8", "value": 1, "weight": 0.4 }
+        ]
+      },
+      {
+        "id": "stable_long_term",
+        "label": "我更相信稳定、长期、靠得住的陪伴。",
+        "impacts": [
+          { "dimension": "D4", "value": -1, "weight": 0.6 },
+          { "dimension": "D6", "value": -1, "weight": 0.6 },
+          { "dimension": "D3", "value": 1, "weight": 0.4 }
+        ]
+      },
+      {
+        "id": "relaxed_fun",
+        "label": "我希望搭子能让我放松，一起把日常变好玩。",
+        "impacts": [
+          { "dimension": "D1", "value": 1, "weight": 0.5 },
+          { "dimension": "D4", "value": 1, "weight": 0.6 },
+          { "dimension": "D7", "value": -1, "weight": 0.6 }
+        ]
+      },
+      {
+        "id": "goal_growth",
+        "label": "我喜欢一起推进目标，互相督促、共同变强。",
+        "impacts": [
+          { "dimension": "D7", "value": 1, "weight": 0.7 },
+          { "dimension": "D4", "value": -1, "weight": 0.4 },
+          { "dimension": "D6", "value": 1, "weight": 0.3 }
+        ]
+      },
+      {
+        "id": "deep_sincere",
+        "label": "我更看重深度连接，不需要很多人，但要真诚。",
+        "impacts": [
+          { "dimension": "D1", "value": -1, "weight": 0.5 },
+          { "dimension": "D8", "value": -1, "weight": 0.7 },
+          { "dimension": "D5", "value": -1, "weight": 0.4 }
+        ]
+      }
+    ]
+  },
+  "sceneTags": {
+    "food": "饭搭子 / 探店",
+    "study": "学习 / 自习 / 资料共享",
+    "sports": "运动 / 健身 / 户外",
+    "city_explore": "旅行 / 城市探索",
+    "gaming": "游戏 / 线上娱乐",
+    "culture": "展览 / 电影 / 演出 / 读书",
+    "project": "项目 / 创业 / 创作",
+    "emotional": "情绪陪伴 / 深夜聊天",
+    "event": "聚会 / 社群活动"
+  },
+  "scoring": {
+    "coreResponseValueRange": [-2, -1, 0, 1, 2],
+    "traitVectorRange": [-2, 2],
+    "coreQuestionFormula": "For each impact, selected A uses impact.a, selected B uses impact.b, neutral is 0. delta = sideValue * abs(responseValue / 2) * question.discrimination * impact.weight.",
+    "normalizationFormula": "dimensionValue = clamp(2 * weightedSum / maxAbsWeight, -2, 2).",
+    "calibrationFormula": "Q31 adds each selected option impact.value * impact.weight. Q32 subtracts each selected option impact.value * impact.weight. Clamp final dimensions to [-2, 2].",
+    "animalRanking": {
+      "prototypeFile": "animal_prototypes_v0_2.json",
+      "distance": "sqrt(sum(dimensionWeight * (userDimension - animalPrototypeDimension)^2))",
+      "probability": "softmax(-distance / temperature)",
+      "temperature": 1.15
+    },
+    "resultPolicy": {
+      "strongMainType": "P1 >= 0.24 and P1 - P2 >= 0.08",
+      "mixedType": "P1 >= 0.20 and P1 - P2 < 0.08",
+      "broadMixedType": "P1 < 0.20 with acceptable consistency",
+      "secondaryCount": "Show 1 secondary animal when P1 - P2 >= 0.08, otherwise show 2 secondary animals."
+    },
+    "confidenceFormula": "confidence = 0.35 * dominance + 0.25 * consistency + 0.20 * completion + 0.20 * dimensionStability",
+    "supplementalTrigger": "Trigger 4-8 extra questions when P1 - P2 < 0.06, P1 < 0.18, consistency < 0.62, or confidence < 0.58."
+  }
+}
