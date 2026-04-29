@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorthMatch V4 Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav" aria-label="WorthMatch V4 navigation">
+      <a class="brand" href="#today" data-route="today" aria-label="WorthMatch V4">
+        <span class="brand-mark">W</span>
+        <span>
+          <strong>WorthMatch</strong>
+          <small>V4 buddy beta</small>
+        </span>
+      </a>
+
+      <nav class="nav-list" id="sideNav"></nav>
+
+      <section class="ai-pocket">
+        <div class="ai-pocket-head">
+          <span class="mini-avatar">AI</span>
+          <span>
+            <strong>小云</strong>
+            <small>你的搭子 AI</small>
+          </span>
+        </div>
+        <p>已记住你喜欢低压社交、周末上午活动、第一次见面不暴露住址。</p>
+        <button class="ghost-button" data-route="ai">继续聊天</button>
+      </section>
+    </aside>
+
+    <main class="main-stage">
+      <header class="top-bar">
+        <div>
+          <p class="eyebrow">ABTI · AI Agent · Buddy Social</p>
+          <h1 id="pageTitle">今天想找什么搭子？</h1>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" aria-label="查看通知">
+            <span>🔔</span>
+            <i></i>
+          </button>
+          <button class="profile-chip" data-route="profile">
+            <span class="animal-sprite tiny" data-animal="otter"></span>
+            <span>Leo</span>
+          </button>
+        </div>
+      </header>
+
+      <section id="view" class="view"></section>
+    </main>
+
+    <nav class="bottom-nav" id="bottomNav" aria-label="WorthMatch V4 mobile navigation"></nav>
+  </div>
+
+  <template id="animalSpriteTemplate">
+    <span class="animal-sprite"></span>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>
